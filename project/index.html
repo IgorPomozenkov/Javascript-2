@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Интернет-магазин</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <button class="btn-cart" type="button">Корзина</button>
+            <div class="cart">
+                <button class="btnClose" type="button">Закрыть</button>
+            </div>
+        </div>
+        <div class="headerInfo">
+            <div class="container">
+                <h2>PRODUCTS</h2>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="products container"></div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2021 Brand All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        let cartEl = document.querySelector('.cart');
+
+        document.querySelector('.btn-cart').addEventListener('click', () => {
+            cartEl.style.display = 'flex';
+        });
+        document.querySelector('.btnClose').addEventListener('click', () => {
+            cartEl.style.display = 'none';
+        });
+
+    </script>
+</body>
+</html>
