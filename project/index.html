@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Интернет-магазин</title>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div class="container">
+                <form action="#" class="searchForm">
+                    <input type="text" class="searchForm__field" v-model="userSearch">
+                    <button class="btnSearch" type="submit" @click="filter()">Найти</button>
+                </form>
+                <button class="btn-cart" type="button" @click="show =! show">Корзина</button>
+                <div class="cart" v-show="show">
+                    <button class="btnClose" type="button" @click="show =! show">Закрыть</button>
+                </div>
+            </div>
+            <div class="headerInfo">
+                <div class="container">
+                    <h2>PRODUCTS</h2>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="products container">
+                <h2 v-if="products.lenght = 0">Список товаров пуст</h2>
+                <div class="product-item" :data-id="product.id_product" v-for="product of products" :key="product.id_product">
+                    <img :src="imgCatalog" alt="Some img">
+                    <h3>{{product.product_name}}</h3>
+                    <p>{{product.price}}</p>
+                    <button class="buy-btn" @click="addProduct(product)">Купить</button>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="container">
+                <p>&copy; 2021 Brand All Rights Reserved</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
