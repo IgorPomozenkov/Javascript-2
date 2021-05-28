@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Интернет-магазин</title>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div class="container">
+                <form action="#" class="searchForm" @submit.prevent="filter">
+                    <input type="text" class="searchForm__field" v-model="userSearch">
+                    <button class="btnSearch" type="submit">Найти</button>
+                </form>
+                <button class="btn-cart" type="button" @click="showCart = !showCart">Корзина</button>
+                <div class="cart" v-show="showCart">
+                    <button class="btnClose" type="button" @click="showCart = !showCart">Закрыть</button>
+                    <h2 v-if="cartItems.length == 0">Список товаров пуст</h2>
+                    <div class="cart__item" v-for="item of cartItems" :key="item.id_product">
+                        <img :src="imgCatalog" alt="Some img">
+                        <div class="cart__contentCenter">
+                            <h3>{{item.product_name}}</h3>
+                            <span class="cart__quantity">Quantity: {{item.quantity}}</span>
+                            <p>{{item.price}}</p>
+                        </div>
+                        <div class="cart__contentRight">
+                            <span class="cart__price">{{item.quantity*item.price}}</span>
+                            <button class="btnAdd" @click="addProduct(item)">+</button>
+                            <button class="btnRemove" @click="remove(item)">-</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="headerInfo">
+                <div class="container">
+                    <h2>PRODUCTS</h2>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="products container">
+                <div class="product-item" v-for="product of filtered" :key="product.id_product">
+                    <img :src="imgCatalog" alt="Some img">
+                    <h3>{{product.product_name}}</h3>
+                    <p>{{product.price}}</p>
+                    <button class="buy-btn" @click="addProduct(product)">Купить</button>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="container">
+                <p>&copy; 2021 Brand All Rights Reserved</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
