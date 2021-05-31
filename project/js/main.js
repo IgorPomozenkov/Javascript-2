@@ -10,7 +10,8 @@ const app = new Vue({
         products: [],
         cartItems: [],
         filtered: [],
-        showCart: false
+        showCart: false,
+        error: false
     },
     methods: {
         getJson(url){
