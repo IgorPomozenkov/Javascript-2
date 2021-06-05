@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Интернет-магазин</title>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div class="container">
+                <search></search>
+                <button class="btn-cart" type="button" @click="showCart =! showCart">Корзина</button>
+                <cart :cart-items="cartItems" :img="imgCatalog" :visibility="showCart" @add-product="addProduct" @remove="remove"></cart>
+            </div>
+            <div class="headerInfo">
+                <div class="container">
+                    <h2>PRODUCTS</h2>
+                </div>
+            </div>
+        </header>
+        <main>
+            <products :products="filtered" :img="imgCatalog" @add-product="addProduct"></products>
+        </main>
+        <footer>
+            <div class="container">
+                <p>&copy; 2021 Brand All Rights Reserved</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/CartComponent.js"></script>
+    <script src="js/SearchComponent.js"></script>
+    <script src="js/ProductComponent.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
